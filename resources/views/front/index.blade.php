@@ -1,22 +1,16 @@
 
+@extends('layout.app')
+@section('title', 'Daihatsu PRM - Dealer Resmi Daihatsu Promo Terbaik')
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		@vite(['resources/css/app.css', 'resources/js/app.js'])
+@section('meta_description',
+'Dealer Daihatsu PRM resmi dengan promo Daihatsu terbaru, simulasi kredit, test drive, dan penawaran terbaik untuk Ayla, Rocky, Xenia, Sigra dan lainnya.')
 
-<!-- <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet" /> -->
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-		<!-- CSS -->
-         <link rel="stylesheet"
-      href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-		<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
-	</head>
-	<body class="min-h-screen flex flex-col m-0">
+@section('content')
+
+
+
 	<main class="flex-1">	
-		<x-navbar />
+		
 
 <div class="relative mb-10">
 
@@ -668,8 +662,8 @@
 		
 
        
-	</body>
+
     
 	</main>
-	  <x-footer />
-</html>
+
+@endsection
