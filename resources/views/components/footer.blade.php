@@ -9,7 +9,7 @@
             {{-- Brand --}}
             <div>
 
-                <img src="{{ asset('assets/images/logos/logopng.png') }}"
+                <img src="{{ asset('assets/images/logos/logo-baru.png') }}"
                      alt="Daihatsu PRM"
                      class="h-12 mb-5">
 

@@ -12,7 +12,7 @@
             <a href="{{ route('front.index') }}"
    class="shrink-0">
                 <img
-    src="{{ asset('assets/images/logos/logopng.png') }}"
+    src="{{ asset('assets/images/logos/logo-baru.png') }}"
     class="h-10 md:h-12 w-auto"
     alt="Daihatsu PRM">
             </a>
