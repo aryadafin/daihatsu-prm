@@ -1,17 +1,18 @@
 
+
 @extends('layout.app')
+
 @section('title', 'Daihatsu PRM - Dealer Resmi Daihatsu Promo Terbaik')
 
 @section('meta_description',
 'Dealer Daihatsu PRM resmi dengan promo Daihatsu terbaru, simulasi kredit, test drive, dan penawaran terbaik untuk Ayla, Rocky, Xenia, Sigra dan lainnya.')
 
+@push('styles')
+<link rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+@endpush
+
 @section('content')
-
-
-
-	<main class="flex-1">	
-		
-
 <div class="relative mb-10">
 
     <div class="main-carousel">
@@ -661,9 +662,10 @@
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 		
 
-       
+     @push('scripts')
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+@endpush
 
-    
-	</main>
-
-@endsection
+@endsection  
+	
