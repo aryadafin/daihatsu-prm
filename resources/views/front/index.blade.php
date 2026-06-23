@@ -19,17 +19,25 @@
 
         @foreach($heroBanners as $banner)
 
-            <div class="carousel-cell w-full">
+          <div class="carousel-cell w-full">
 
-                <img
-                    src="{{ Storage::url($banner->desktop_image) }}"
-                    class="hidden md:block w-full object-cover">
+    <picture>
 
-                <img
-                    src="{{ Storage::url($banner->mobile_image) }}"
-                    class="block md:hidden w-full object-cover">
+        <source
+            media="(min-width: 768px)"
+            srcset="{{ Storage::url($banner->desktop_image) }}">
 
-            </div>
+        <img
+            src="{{ Storage::url($banner->mobile_image) }}"
+            alt="Daihatsu PRM Banner"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full object-cover">
+
+    </picture>
+
+</div>
 
         @endforeach
 
@@ -74,15 +82,17 @@
                     <div class="h-[180px] flex items-center justify-center overflow-hidden">
 
                         <img
-                            src="{{ $car->thumbnail
-                                ? \Illuminate\Support\Facades\Storage::url($car->thumbnail)
-                                : asset('assets/images/no-image.png') }}"
-                            class="w-full h-[220px] object-contain
-                                   scale-125
-                                   transition-all duration-700 ease-out
-                                   group-hover:scale-[1.35]
-                                   group-hover:-translate-y-3"
-                            alt="{{ $car->name }}">
+    loading="lazy"
+    decoding="async"
+    src="{{ $car->thumbnail
+        ? \Illuminate\Support\Facades\Storage::url($car->thumbnail)
+        : asset('assets/images/no-image.png') }}"
+    class="w-full h-[220px] object-contain
+           scale-125
+           transition-all duration-700 ease-out
+           group-hover:scale-[1.35]
+           group-hover:-translate-y-3"
+    alt="{{ $car->name }}">
 
                     </div>
 
@@ -202,10 +212,11 @@
                             p-5 shadow-sm">
 
                     <img
-                        src="{{ Storage::url($car->thumbnail) }}"
-                        alt="{{ $car->name }}"
-                        class="w-full object-contain">
-
+    loading="lazy"
+    decoding="async"
+    src="{{ Storage::url($car->thumbnail) }}"
+    alt="{{ $car->name }}"
+    class="w-full object-contain">
                     <h3 class="font-bold text-lg mt-4">
                         {{ $car->name }}
                     </h3>
