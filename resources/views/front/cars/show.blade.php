@@ -84,19 +84,16 @@
 </section>
 @if($car->hero_image)
 
-<section class="relative h-screen">
+<section class="relative">
 
     <img
         src="{{ Storage::url($car->hero_image) }}"
-        class="absolute inset-0 w-full h-full object-cover">
+        alt="{{ $car->name }}"
+        class="w-full h-auto">
 
-    <div class="absolute inset-0 bg-black/50"></div>
-
-    <div class="relative z-10 h-full flex items-center">
-        <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-7xl font-bold text-white">
-                {{ $car->name }}
-            </h1>
+    <div class="absolute inset-0 flex items-center">
+        <div class="max-w-7xl mx-auto w-full px-6">
+           
         </div>
     </div>
 
@@ -185,9 +182,7 @@
 
                 <div class="fade-up">
 
-                    <span class="text-[#C8102E] uppercase tracking-[4px]">
-                        Feature {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
-                    </span>
+                    
 
                     <h2 class="text-5xl font-bold mt-5">
                         {{ $feature->title }}
@@ -203,9 +198,7 @@
 
                 <div class="fade-up order-2 lg:order-1">
 
-                    <span class="text-[#C8102E] uppercase tracking-[4px]">
-                        Feature {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}
-                    </span>
+                    
 
                     <h2 class="text-5xl font-bold mt-5">
                         {{ $feature->title }}
@@ -255,11 +248,15 @@
 
         </div>
 
-        <div class="aspect-video rounded-[40px] overflow-hidden shadow-2xl">
+        <div class="aspect-video overflow-hidden rounded-[40px]">
 
             <iframe
                 class="w-full h-full"
-                src="{{ str_replace('watch?v=', 'embed/', $car->youtube_url) }}"
+                loading="lazy"
+                src="{{ str_replace('watch?v=', 'embed/', $car->youtube_url) }}?controls=1&rel=0&modestbranding=1&playsinline=1"
+                title="Video {{ $car->name }}"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
             </iframe>
 
@@ -270,7 +267,6 @@
 </section>
 
 @endif
-
 @if($car->creditSimulations->count())
 
     <livewire:car-credit-calculator

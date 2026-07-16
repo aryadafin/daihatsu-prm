@@ -17,9 +17,9 @@
 
     <div class="main-carousel">
 
-        @foreach($heroBanners as $banner)
+      @foreach($heroBanners as $banner)
 
-          <div class="carousel-cell w-full">
+<div class="carousel-cell w-full">
 
     <picture>
 
@@ -39,7 +39,7 @@
 
 </div>
 
-        @endforeach
+@endforeach
 
     </div>
 

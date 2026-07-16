@@ -11,6 +11,8 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 
 class CarsTable
 {
@@ -35,8 +37,9 @@ class CarsTable
                 TextColumn::make('slug')
                     ->searchable(),
                 TextColumn::make('price')
-                    ->money()
-                    ->sortable(),
+    ->label('Harga OTR')
+    ->money('IDR', locale: 'id')
+    ->sortable(),
                 TextColumn::make('thumbnail')
                     ->searchable(),
                 TextColumn::make('engine')
@@ -60,6 +63,24 @@ class CarsTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
+                 TernaryFilter::make('is_active')
+        ->label('Status Aktif')
+        ->trueLabel('Aktif')
+        ->falseLabel('Tidak Aktif')
+        ->placeholder('Semua'),
+
+    TernaryFilter::make('is_featured')
+        ->label('Featured')
+        ->trueLabel('Featured')
+        ->falseLabel('Bukan Featured')
+        ->placeholder('Semua'),
+
+   
+SelectFilter::make('car_category_id')
+    ->label('Kategori')
+    ->relationship('category', 'name')
+    ->searchable()
+    ->preload(),
                 TrashedFilter::make(),
             ])
             ->recordActions([

@@ -8,14 +8,18 @@
 
        <div class="h-20 flex items-center justify-between gap-4">
 
-            {{-- LOGO --}}
-            <a href="{{ route('front.index') }}"
-   class="shrink-0">
-                <img
-    src="{{ asset('assets/images/logos/logo-baru.png') }}"
-    class="h-10 md:h-12 w-auto"
-    alt="Daihatsu PRM">
-            </a>
+          {{-- LOGO --}}
+<a href="{{ route('front.index') }}" class="shrink-0">
+
+    <img
+        src="{{ asset('assets/images/logos/logo-baru.png') }}"
+        alt="Logo Daihatsu PRM"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="h-10 md:h-12 w-auto">
+
+</a>
 
             {{-- DESKTOP MENU --}}
             <div class="hidden lg:flex items-center gap-10">
